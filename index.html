@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pre-Loader</title> 
+ <style>
+        #preloader {
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 9999;
+                background: url( "preload.gif") center no-repeat #524490;;
+                background-size: 300px;
+            }
+        </style>
+    <div id="preload">
+        <div id="preloader">
+            <h5 class="text-light">preloader Loading..</h5>
+        </div>
+    </div>
+    <script>
+        function fadeOut(elementToFade){
+            var element = document.getElementById(elementToFade);
+            var prelaod = document.getElementById("preload");
+
+            element.style.opacity -= 0.1;
+            if(element.style.opacity < 0.0) {
+                element.style.opacity = 0.0;
+                preload.innerHTML = ``
+            } else {
+                setTimeout("fadeOut(\"" + elementToFade + "\")", 100)
+            }
+        }
+        
+        window.onload = function() {
+            fadeOut("preloader")
+        }
+        </script>
